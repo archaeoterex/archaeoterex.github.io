@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>Aleksandr Terekhov / Alex Terex — Filmmaker</title>
-    <meta name="description" content="Aleksandr Terekhov / Alex Terex — Filmmaker">
+    <meta name="description" content="Filmmaker">
     <meta name="theme-color" content="#0d1117">
 
     <!-- Предварительное сетевое соединение с плеером и обложками YouTube -->
@@ -14,18 +14,22 @@
     <link rel="preconnect" href="https://i.ytimg.com">
     <link rel="dns-prefetch" href="https://i.ytimg.com">
 
-    <!-- Open Graph превью для Telegram, WhatsApp и соцсетей -->
+    <!-- ======================================================== -->
+    <!-- ИСПРАВЛЕННЫЕ МЕТА-ТЕГИ ДЛЯ ИДЕАЛЬНОГО ПРЕВЬЮ БЕЗ ДУБЛЕЙ  -->
+    <!-- ======================================================== -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Alex Terex">
-    <meta property="og:title" content="Aleksandr Terekhov / Alex Terex — Filmmaker">
+    <!-- Только чистое имя (без приписок) -->
+    <meta property="og:title" content="Aleksandr Terekhov / Alex Terex">
+    <!-- Профессия идет аккуратной второй строкой -->
     <meta property="og:description" content="Filmmaker">
     <meta property="og:url" content="https://archaeoterex.github.io/">
     <meta property="og:image" content="https://archaeoterex.github.io/avatar.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
+    <!-- Настройки для Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Aleksandr Terekhov / Alex Terex — Filmmaker">
+    <meta name="twitter:title" content="Aleksandr Terekhov / Alex Terex">
     <meta name="twitter:description" content="Filmmaker">
 
     <!-- Фирменный векторный SVG-фавикон (Монограмма А с 3 ножками и Т) -->
@@ -62,7 +66,10 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             margin: 0;
+            
+            /* Верхний отступ уменьшен в 2 раза */
             padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(60px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+            
             min-height: 100dvh;
             display: flex;
             align-items: center;
@@ -90,7 +97,7 @@
             display: inline-block;
         }
         
-        /* Имя строго в одну строку без переносов */
+        /* Имя гарантированно в одну строку без переносов */
         h1 {
             font-size: clamp(1.05rem, 4.8vw, 1.45rem);
             color: var(--text-main);
@@ -252,7 +259,7 @@
 <body ontouchstart="">
 
     <main>
-        <!-- Аватарка (использует файл avatar.jpg) -->
+        <!-- Аватарка -->
         <img class="avatar" 
              src="avatar.jpg" 
              width="110" 
@@ -298,7 +305,7 @@
                     </svg>
                 </a>
 
-                <!-- 4. Email (Proton Mail, в новом окне) -->
+                <!-- 4. Email (Proton Mail) -->
                 <a href="mailto:alexterex@proton.me" class="btn-base sq-btn" target="_blank" rel="noopener noreferrer" aria-label="Написать на Email">
                     <svg viewBox="0 0 24 24" class="icon-stroke" aria-hidden="true" focusable="false">
                         <circle cx="12" cy="12" r="4"></circle>
