@@ -61,23 +61,27 @@
             text-rendering: optimizeLegibility;
         }
 
-        main { max-width: 400px; width: 100%; text-align: center; }
+        main {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
 
         .avatar {
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--border-color);
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             background-color: #161b22;
             display: inline-block;
         }
 
         h1 {
-            font-size: clamp(1.18rem, 5.2vw, 1.5rem);
+            font-size: clamp(1.05rem, 4.8vw, 1.45rem);
             color: var(--text-main);
-            margin: 0 0 10px 0;
-            letter-spacing: -0.4px;
-            line-height: 1.2;
+            margin: 0 0 6px 0;
+            letter-spacing: -0.3px;
+            line-height: 1.25;
             font-weight: 700;
             white-space: nowrap;
         }
@@ -90,14 +94,13 @@
         }
 
         .subtitle {
-            font-size: 0.78rem;
+            font-size: 0.85rem;
             color: var(--text-sub);
-            margin: 0 0 26px 0;
+            margin: 0 0 24px 0;
             line-height: 1.4;
             font-weight: 600;
-            letter-spacing: 1.2px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            opacity: 0.9;
         }
 
         .links-stack {
@@ -105,6 +108,8 @@
             flex-direction: column;
             gap: var(--grid-gap);
             width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .btn-base {
@@ -155,6 +160,14 @@
         .icon-linkedin { width: 35px; height: 35px; fill: currentColor; }
         .icon-imdb { width: 48px; height: 18px; fill: currentColor; }
 
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--grid-gap);
+            width: 100%;
+            margin-top: var(--grid-gap);
+        }
+
         .video-card {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -162,10 +175,25 @@
             overflow: hidden;
             border: 2px solid var(--border-color);
             box-shadow: 5px 5px 0px var(--accent-shadow);
-            background-color: #000000;
+            background-color: var(--bg-btn);
+            transform: translateZ(0);
         }
 
-        .video-card iframe { width: 100%; height: 100%; border: 0; display: block; }
+        .video-card iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            border-radius: inherit;
+        }
+
+        @media (min-width: 1260px) {
+            main { max-width: calc(400px * 3 + var(--grid-gap) * 2); }
+            .video-grid {
+                grid-template-columns: repeat(3, 400px);
+                justify-content: center;
+            }
+        }
 
         @media (prefers-reduced-motion: reduce) {
             .btn-base { transition: none; }
@@ -180,7 +208,7 @@
         <p class="subtitle">FILMMAKER</p>
 
         <div class="links-stack">
-            <nav class="square-grid" aria-label="Контакты">
+            <nav class="square-grid" aria-label="Контакты и социальные сети">
                 <a href="https://instagram.com/archaeoterex" class="btn-base sq-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" class="icon-stroke" aria-hidden="true" focusable="false">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -201,56 +229,65 @@
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"></path>
                     </svg>
                 </a>
-                <a href="mailto:alexterex@proton.me" class="btn-base sq-btn" target="_blank" rel="noopener noreferrer" aria-label="Email">
+                <a href="mailto:alexterex@proton.me" class="btn-base sq-btn" target="_blank" rel="noopener noreferrer" aria-label="Написать на Email">
                     <svg viewBox="0 0 24 24" class="icon-stroke" aria-hidden="true" focusable="false">
                         <circle cx="12" cy="12" r="4"></circle>
                         <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0-5.5 8.28"></path>
                     </svg>
                 </a>
             </nav>
+        </div>
 
-            <!-- ВИДЕО 1 -->
-            <div class="video-card">
-                <iframe 
-                    src="https://www.youtube-nocookie.com/embed/dnI5PDSX9QI" 
-                    title="Featured Video 1" 
-                    width="400" 
-                    height="225" 
-                    loading="lazy" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-            </div>
+        <div class="video-grid">
 
-            <!-- ВИДЕО 2 -->
-            <div class="video-card">
-                <iframe 
-                    src="https://www.youtube-nocookie.com/embed/VIV2VpQdUMo" 
-                    title="Featured Video 2" 
-                    width="400" 
-                    height="225" 
-                    loading="lazy" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <!-- ВИДЕО 3 -->
-            <div class="video-card">
-                <iframe 
-                    src="https://www.youtube-nocookie.com/embed/x7h5P-s2tm0" 
-                    title="Featured Video 3" 
-                    width="400" 
-                    height="225" 
-                    loading="lazy" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
+                <div class="video-card">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/dnI5PDSX9QI"
+                        title="Featured Video 1"
+                        width="400"
+                        height="225"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-card">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/VIV2VpQdUMo"
+                        title="Featured Video 2"
+                        width="400"
+                        height="225"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-card">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/x7h5P-s2tm0"
+                        title="Featured Video 3"
+                        width="400"
+                        height="225"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-card">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/jz1yQP60wTo"
+                        title="Featured Video 4"
+                        width="400"
+                        height="225"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
         </div>
     </main>
 </body>
