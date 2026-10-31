@@ -1,30 +1,43 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="ru">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://archaeoterex.github.io https://i.ytimg.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self';">
+
     <title>Aleksandr Terekhov / Alex Terex — FILMMAKER</title>
     <meta name="description" content="FILMMAKER">
     <meta name="theme-color" content="#0d1117">
-    <meta name="color-scheme" content="dark">
+
+    <!-- Предварительное сетевое соединение с плеером и обложками YouTube -->
     <link rel="preconnect" href="https://www.youtube-nocookie.com">
     <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
     <link rel="preconnect" href="https://i.ytimg.com">
     <link rel="dns-prefetch" href="https://i.ytimg.com">
+
+    <!-- Open Graph превью для Telegram, WhatsApp и соцсетей -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Aleksandr Terekhov / Alex Terex">
     <meta property="og:description" content="FILMMAKER">
     <meta property="og:url" content="https://archaeoterex.github.io/">
     <meta property="og:image" content="https://archaeoterex.github.io/avatar.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="1000">
+    <meta property="og:image:height" content="1000">
+
+    <!-- Настройки для Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Aleksandr Terekhov / Alex Terex">
     <meta name="twitter:description" content="FILMMAKER">
+    <meta name="twitter:image" content="https://archaeoterex.github.io/avatar.jpg">
+
+    <!-- Фирменный векторный SVG-фавикон (Монограмма А с 3 ножками и Т) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2321262d' stroke='%2330363d' stroke-width='4'/%3E%3Cpath d='M25 80 L50 20 L75 80 M35 52 H65 M50 52 V80' fill='none' stroke='%23cb4c3e' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
     <style>
         :root {
             --bg-body: #0d1117;
             --bg-btn: #21262d;
+            --bg-caption: #161b22;
             --border-color: #30363d;
             --accent-shadow: #cb4c3e;
             --text-main: #f0f6fc;
@@ -36,7 +49,11 @@
             --grid-gap: 14px;
             --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-        *, *::before, *::after { box-sizing: border-box; }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: var(--font-stack);
             background-color: var(--bg-body);
@@ -53,7 +70,14 @@
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
-        main { max-width: 400px; width: 100%; text-align: center; }
+
+        main {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Профиль */
         .avatar {
             border-radius: 50%;
             object-fit: cover;
@@ -62,24 +86,38 @@
             background-color: #161b22;
             display: inline-block;
         }
+
+        /* Имя гарантированно в одну строку без переносов */
         h1 {
             font-size: clamp(1.05rem, 4.8vw, 1.45rem);
-            margin: 0 0 6px;
+            color: var(--text-main);
+            margin: 0 0 6px 0;
             letter-spacing: -0.3px;
             line-height: 1.25;
             font-weight: 700;
             white-space: nowrap;
         }
-        .slash { color: var(--accent-shadow); font-weight: 900; margin: 0 3px; display: inline-block; }
+
+        /* Плотный слэш в цвет кирпичной тени */
+        .slash {
+            color: var(--accent-shadow);
+            font-weight: 900;
+            margin: 0 3px;
+            display: inline-block;
+        }
+
+        /* Лаконичная плотная подпись FILMMAKER */
         .subtitle {
             font-size: 0.85rem;
             color: var(--text-sub);
-            margin: 0 0 24px;
+            margin: 0 0 24px 0;
             line-height: 1.4;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
+
+        /* Единый контейнер для иконок */
         .links-stack {
             display: flex;
             flex-direction: column;
@@ -88,11 +126,13 @@
             max-width: 400px;
             margin: 0 auto;
         }
+
+        /* Кнопки */
         .btn-base {
             background-color: var(--bg-btn);
             color: var(--btn-icon);
             border: 2px solid var(--border-color);
-            box-shadow: 5px 5px 0 var(--accent-shadow);
+            box-shadow: 5px 5px 0px var(--accent-shadow);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -101,72 +141,196 @@
             font-size: 0.875rem;
             letter-spacing: 0.5px;
             user-select: none;
-            transition: transform .1s cubic-bezier(.4,0,.2,1), box-shadow .1s cubic-bezier(.4,0,.2,1), color .15s ease;
+            touch-action: manipulation;
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+                        color 0.15s ease;
         }
-        .btn-base:focus-visible { outline: 2px solid var(--btn-focus); outline-offset: 4px; }
+
+        .btn-base:focus-visible {
+            outline: 2px solid var(--btn-focus);
+            outline-offset: 4px;
+        }
+
         @media (hover: hover) {
-            .btn-base:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--accent-shadow); color: #fff; }
+            .btn-base:hover {
+                transform: translate(2px, 2px);
+                box-shadow: 3px 3px 0px var(--accent-shadow);
+                color: #ffffff;
+            }
         }
-        .btn-base:active { transform: translate(5px, 5px); box-shadow: 0 0 0 var(--accent-shadow); color: #fff; }
-        .square-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--grid-gap); }
-        .sq-btn { aspect-ratio: 1 / 1; border-radius: var(--radius-sq); }
-        .sq-btn svg { pointer-events: none; }
-        .icon-stroke { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        .icon-linkedin { width: 35px; height: 35px; fill: currentColor; }
-        .icon-imdb { width: 48px; height: 18px; fill: currentColor; }
+
+        .btn-base:active {
+            transform: translate(5px, 5px);
+            box-shadow: 0px 0px 0px var(--accent-shadow);
+            color: #ffffff;
+        }
+
+        /* Сетка квадратных иконок */
+        .square-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--grid-gap);
+        }
+
+        .sq-btn {
+            aspect-ratio: 1 / 1;
+            border-radius: var(--radius-sq);
+        }
+
+        .sq-btn svg {
+            pointer-events: none;
+        }
+
+        .icon-stroke {
+            width: 30px;
+            height: 30px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-linkedin {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
+        .icon-imdb {
+            width: 48px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Сетка видео: 1 колонка на телефоне, 3 на компьютере */
         .video-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: var(--grid-gap);
             width: 100%;
-            /* Отступ сверху = сетка + толщина тени кнопок (5px) */
             margin-top: calc(var(--grid-gap) + 5px);
         }
+
         .video-card {
+            position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
             border-radius: var(--radius-btn);
             overflow: hidden;
             border: 2px solid var(--border-color);
             background-color: var(--bg-btn);
-            transform: translateZ(0);
+            isolation: isolate;
         }
-        .video-card iframe { width: 100%; height: 100%; border: 0; display: block; border-radius: inherit; }
+
+        .video-card iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* Тёмная непрозрачная полоска с подписью (20% высоты внизу) */
+        .video-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20%;
+            min-height: 38px;
+            background-color: var(--bg-caption);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 14px;
+            z-index: 2;
+            transform: translateY(0);
+            transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .video-caption:empty {
+            display: none;
+        }
+
+        .video-caption-text {
+            display: block;
+            width: 100%;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+        }
+
+        /* На компьютере: плавно опускается вниз при наведении мыши */
+        @media (hover: hover) {
+            .video-card:hover .video-caption,
+            .video-card:focus-within .video-caption {
+                transform: translateY(100%);
+            }
+        }
+
+        /* Когда видео запущено или шторка открыта тапом на смартфоне */
+        .video-card.is-active .video-caption {
+            transform: translateY(100%);
+            pointer-events: none;
+        }
+
+        /* 3 видео по ширине колонки с кнопками (400px), среднее совпадает с ней */
         @media (min-width: 1260px) {
-            main { max-width: calc(400px * 3 + var(--grid-gap) * 2); }
-            .video-grid { grid-template-columns: repeat(3, 400px); justify-content: center; }
+            main {
+                max-width: calc(400px * 3 + var(--grid-gap) * 2);
+            }
+
+            .video-grid {
+                grid-template-columns: repeat(3, 400px);
+                justify-content: center;
+            }
         }
+
         @media (prefers-reduced-motion: reduce) {
-            .btn-base { transition: none; }
-            .btn-base:hover, .btn-base:active { transform: none; }
+            .btn-base,
+            .video-caption {
+                transition: none;
+            }
+            .btn-base:hover, .btn-base:active {
+                transform: none;
+            }
         }
     </style>
-<style>
-        .video-card { position: relative; isolation: isolate; }
-        .video-caption {
-            position: absolute; left: 0; right: 0; bottom: 0; height: 20%; min-height: 38px;
-            background-color: #161b22; border-top: 1px solid var(--border-color, #30363d);
-            color: var(--text-main, #f0f6fc); display: flex; align-items: center; justify-content: center;
-            padding: 0 14px; z-index: 2; transform: translateY(0);
-            transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1); cursor: pointer; user-select: none;
-        }
-        .video-caption:empty { display: none; }
-        .video-caption-text {
-            display: block; width: 100%; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2px;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center;
-        }
-        @media (hover: hover) {
-            .video-card:hover .video-caption, .video-card:focus-within .video-caption { transform: translateY(100%); }
-        }
-        .video-card.is-active .video-caption { transform: translateY(100%); pointer-events: none; }</style></head>
+</head>
 <body>
+
     <main>
-        <img class="avatar" src="avatar.jpg" width="110" height="110" alt="Aleksandr Terekhov / Alex Terex" loading="eager" decoding="async" fetchpriority="high">
+        <!-- Аватарка -->
+        <img class="avatar"
+             src="avatar.jpg"
+             width="110"
+             height="110"
+             alt="Aleksandr Terekhov / Alex Terex"
+             loading="eager"
+             decoding="async"
+             fetchpriority="high">
+
+        <!-- Имя строго в одну строку -->
         <h1>Aleksandr Terekhov <span class="slash" aria-hidden="true">/</span> Alex Terex</h1>
         <p class="subtitle">FILMMAKER</p>
 
+        <!-- ЕДИНЫЙ БЛОК КОНТЕНТА -->
         <div class="links-stack">
-            <nav class="square-grid" aria-label="Social links">
+
+            <nav class="square-grid" aria-label="Контакты и социальные сети">
+
+                <!-- 1. Instagram -->
                 <a href="https://instagram.com/archaeoterex" class="btn-base sq-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" class="icon-stroke" aria-hidden="true" focusable="false">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -174,6 +338,8 @@
                         <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none"></circle>
                     </svg>
                 </a>
+
+                <!-- 2. IMDb -->
                 <a href="https://www.imdb.com/name/nm9440554/" class="btn-base sq-btn" target="_blank" rel="noopener noreferrer" aria-label="IMDb Profile">
                     <svg viewBox="0 0 48 18" class="icon-imdb" aria-hidden="true" focusable="false">
                         <polygon points="0 18 5 18 5 0 0 0"></polygon>
@@ -182,21 +348,95 @@
                         <path d="M44.43 4.507c-1.075 0-2.027.503-2.646 1.274V0H37v17.769h4.484l.288-1.1c.588.805 1.56 1.331 2.658 1.331 1.972 0 3.57-1.598 3.57-3.57V8.077c0-1.973-1.598-3.57-3.57-3.57zm-1.024 8.777c0 .837-.679 1.516-1.516 1.516s-1.516-.679-1.516-1.516V9.223c0-.837.679-1.516 1.516-1.516s1.516.679 1.516 1.516v4.061z"></path>
                     </svg>
                 </a>
+
+                <!-- 3. LinkedIn -->
                 <a href="https://www.linkedin.com/in/alexterex/" class="btn-base sq-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg viewBox="0 2.2 24 24" class="icon-linkedin" aria-hidden="true" focusable="false">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"></path>
                     </svg>
                 </a>
-                <a href="mailto:alexterex@proton.me" class="btn-base sq-btn" target="_blank" rel="noopener noreferrer" aria-label="Email">
+
+                <!-- 4. Email (без target="_blank", чтобы не открывать пустую вкладку) -->
+                <a href="mailto:alexterex@proton.me" class="btn-base sq-btn" aria-label="Написать на Email">
                     <svg viewBox="0 0 24 24" class="icon-stroke" aria-hidden="true" focusable="false">
                         <circle cx="12" cy="12" r="4"></circle>
                         <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0-5.5 8.28"></path>
                     </svg>
                 </a>
             </nav>
+
         </div>
 
-        <div class="video-grid"><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/dnI5PDSX9QI" title="AI Commercial based on my feature script" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="AI Commercial based on my feature script"><span class="video-caption-text">AI Commercial based on my feature script</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/VIV2VpQdUMo" title="Featured Video 2" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/x7h5P-s2tm0" title="Featured Video 3" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/jz1yQP60wTo" title="Featured Video 4" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/tQwebtqUKKE" title="Featured Video 5" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div></div>
+        <!-- ВИДЕО: на телефоне столбиком, на компьютере по 3 в ряд -->
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                    title="Director&#39;s Showreel — Commercial &amp; Narrative"
+                    width="400"
+                    height="225"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-caption" title="Director&#39;s Showreel — Commercial &amp; Narrative"><span class="video-caption-text">Director&#39;s Showreel — Commercial &amp; Narrative</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                    title="Behind the Scenes — Night Shoot in Prague"
+                    width="400"
+                    height="225"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-caption" title="Behind the Scenes — Night Shoot in Prague"><span class="video-caption-text">Behind the Scenes — Night Shoot in Prague</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                    title="Short Film Teaser — Official Selection"
+                    width="400"
+                    height="225"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-caption" title="Short Film Teaser — Official Selection"><span class="video-caption-text">Short Film Teaser — Official Selection</span></div>
+            </div>
+        </div>
     </main>
 
-</body></html>
+    <script>
+        "use strict";
+        // На смартфонах и планшетах:
+        // 1) При нажатии Play внутри iframe (переход фокуса в плеер) полоска автоматически плавно уезжает вниз.
+        // 2) При касании самой полоски она также плавно скрывается, открывая управление плеером.
+        (function () {
+            function syncActiveVideo() {
+                const active = document.activeElement;
+                if (active && active.tagName === "IFRAME") {
+                    const card = active.closest(".video-card");
+                    if (card) card.classList.add("is-active");
+                }
+            }
+            window.addEventListener("blur", () => {
+                setTimeout(syncActiveVideo, 0);
+            });
+            document.addEventListener("click", (e) => {
+                const cap = e.target.closest && e.target.closest(".video-caption");
+                if (cap) {
+                    const card = cap.closest(".video-card");
+                    if (card) card.classList.add("is-active");
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
