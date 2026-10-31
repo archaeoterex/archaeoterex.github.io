@@ -230,8 +230,9 @@
             display: block;
         }
 
-        /* Тёмная непрозрачная полоска с подписью (22% высоты внизу) */
+        /* Тёмная непрозрачная полоска с подписью (22% высоты внизу, только для ПК) */
         .video-caption {
+            display: none;
             position: absolute;
             left: 0;
             right: 0;
@@ -241,21 +242,20 @@
             background-color: var(--bg-caption);
             border-top: 1px solid var(--border-color);
             color: var(--accent-shadow);
-            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 8px;
+            padding: 0 10px;
             z-index: 2;
             overflow: hidden;
             transform: translateY(0);
             transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
             will-change: transform;
-            cursor: pointer;
+            pointer-events: none;
             user-select: none;
         }
 
         .video-caption:empty {
-            display: none;
+            display: none !important;
         }
 
         .video-caption-text {
@@ -263,7 +263,7 @@
             width: 100%;
             max-width: 100%;
             min-width: 0;
-            font-size: 0.96rem;
+            font-size: 0.88rem;
             font-weight: 600;
             line-height: 1.2;
             color: var(--accent-shadow);
@@ -273,18 +273,16 @@
             text-align: center;
         }
 
-        /* На компьютере: плавно опускается вниз при наведении мыши */
-        @media (hover: hover) {
+        /* Показываем полоску только на устройствах с курсором мыши (ПК и ноутбуки) */
+        @media (hover: hover) and (pointer: fine) {
+            .video-caption {
+                display: flex;
+            }
+
             .video-card:hover .video-caption,
             .video-card:focus-within .video-caption {
                 transform: translateY(100%);
             }
-        }
-
-        /* Когда видео запущено или шторка открыта тапом на смартфоне */
-        .video-card.is-active .video-caption {
-            transform: translateY(100%);
-            pointer-events: none;
         }
 
         /* 3 видео по ширине колонки с кнопками (400px), среднее совпадает с ней */
@@ -366,7 +364,6 @@
         <div class="video-grid"><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/dnI5PDSX9QI" title="A commercial based on my feature screenplay" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="A commercial based on my feature screenplay"><span class="video-caption-text">A commercial based on my feature screenplay</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/x7h5P-s2tm0" title="A software commercial" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="A software commercial"><span class="video-caption-text">A software commercial</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/VIV2VpQdUMo" title="Conceptual music video" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="Conceptual music video"><span class="video-caption-text">Conceptual music video</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/jz1yQP60wTo" title="Documentary teaser for a theatrical project" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="Documentary teaser for a theatrical project"><span class="video-caption-text">Documentary teaser for a theatrical project</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/tQwebtqUKKE" title="Trailer for an indie musical film" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="Trailer for an indie musical film"><span class="video-caption-text">Trailer for an indie musical film</span></div></div></div>
     </main>
 
-    
 
 
 </body></html>
