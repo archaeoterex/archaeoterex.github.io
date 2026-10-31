@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
+<html lang="ru">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://archaeoterex.github.io https://i.ytimg.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self';">
@@ -244,7 +245,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 12px;
+            padding: 0 8px;
             z-index: 2;
             overflow: hidden;
             transform: translateY(0);
@@ -263,7 +264,7 @@
             width: 100%;
             max-width: 100%;
             min-width: 0;
-            font-size: clamp(0.82rem, 3.8vw, 0.96rem);
+            font-size: 0.96rem;
             font-weight: 600;
             line-height: 1.2;
             color: var(--accent-shadow);
@@ -314,7 +315,14 @@
 
     <main>
         <!-- Аватарка -->
-        <img class="avatar" src="avatar.jpg" width="110" height="110" alt="Aleksandr Terekhov / Alex Terex" loading="eager" decoding="async" fetchpriority="high">
+        <img class="avatar"
+             src="avatar.jpg"
+             width="110"
+             height="110"
+             alt="Aleksandr Terekhov / Alex Terex"
+             loading="eager"
+             decoding="async"
+             fetchpriority="high">
 
         <!-- Имя строго в одну строку -->
         <h1>Aleksandr Terekhov <span class="slash" aria-hidden="true">/</span> Alex Terex</h1>
@@ -363,25 +371,92 @@
         </div>
 
         <!-- ВИДЕО: на телефоне столбиком, на компьютере по 3 в ряд -->
-        <div class="video-grid"><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/dnI5PDSX9QI" title="A commercial based on my feature screenplay" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="A commercial based on my feature screenplay"><span class="video-caption-text">A commercial based on my feature screenplay</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/x7h5P-s2tm0" title="A software commercial" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="A software commercial"><span class="video-caption-text">A software commercial</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/VIV2VpQdUMo" title="Conceptual music video" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="Conceptual music video"><span class="video-caption-text">Conceptual music video</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/jz1yQP60wTo" title="Documentary teaser for a theatrical project" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="Documentary teaser for a theatrical project"><span class="video-caption-text">Documentary teaser for a theatrical project</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/tQwebtqUKKE" title="Trailer for an indie musical film" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="Trailer for an indie musical film"><span class="video-caption-text">Trailer for an indie musical film</span></div></div></div>
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                    title="Director&#39;s Showreel — Commercial &amp; Narrative"
+                    width="400"
+                    height="225"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-caption" title="Director&#39;s Showreel — Commercial &amp; Narrative"><span class="video-caption-text">Director&#39;s Showreel — Commercial &amp; Narrative</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                    title="Behind the Scenes — Night Shoot in Prague"
+                    width="400"
+                    height="225"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-caption" title="Behind the Scenes — Night Shoot in Prague"><span class="video-caption-text">Behind the Scenes — Night Shoot in Prague</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                    title="Short Film Teaser — Official Selection"
+                    width="400"
+                    height="225"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-caption" title="Short Film Teaser — Official Selection"><span class="video-caption-text">Short Film Teaser — Official Selection</span></div>
+            </div>
+        </div>
     </main>
 
     <script>
         "use strict";
-        // На смартфонах и планшетах:
-        // 1) При нажатии Play внутри iframe (переход фокуса в плеер) полоска автоматически плавно уезжает вниз.
-        // 2) При касании самой полоски она также плавно скрывается, открывая управление плеером.
         (function () {
+            // 1) Надёжное скрытие полоски при тапе в любое место любого видео:
+            // Когда фокус уже находится в первом iframe, переход во второй iframe НЕ вызывает window.blur.
+            // Поэтому мы отслеживаем смену activeElement по таймеру + сообщения от плеера YouTube + возвращаем фокус окну,
+            // чтобы каждый следующий тап по любому окну видео гарантированно фиксировался с первого касания.
             function syncActiveVideo() {
                 const active = document.activeElement;
                 if (active && active.tagName === "IFRAME") {
                     const card = active.closest(".video-card");
-                    if (card) card.classList.add("is-active");
+                    if (card && !card.classList.contains("is-active")) {
+                        card.classList.add("is-active");
+                    }
                 }
             }
+
             window.addEventListener("blur", () => {
                 setTimeout(syncActiveVideo, 0);
             });
+
+            window.addEventListener("message", (e) => {
+                if (!e.source) return;
+                document.querySelectorAll(".video-card iframe").forEach((frame) => {
+                    if (frame.contentWindow === e.source) {
+                        const card = frame.closest(".video-card");
+                        if (card) card.classList.add("is-active");
+                    }
+                });
+            });
+
+            setInterval(syncActiveVideo, 120);
+
+            document.addEventListener("pointerdown", (e) => {
+                const cap = e.target.closest && e.target.closest(".video-caption");
+                if (cap) {
+                    const card = cap.closest(".video-card");
+                    if (card) card.classList.add("is-active");
+                }
+            }, { passive: true });
+
             document.addEventListener("click", (e) => {
                 const cap = e.target.closest && e.target.closest(".video-caption");
                 if (cap) {
@@ -389,8 +464,34 @@
                     if (card) card.classList.add("is-active");
                 }
             });
+
+            // 2) Авто-подгонка размера шрифта под ширину конкретного экрана (например, iPhone 12 mini):
+            // Короткие подписи остаются крупными (0.96rem), а длинные до 45 символов плавно уменьшаются ровно настолько,
+            // чтобы все символы целиком поместились в одну строку без обрезки троеточием.
+            function fitCaptions() {
+                document.querySelectorAll(".video-caption-text").forEach((span) => {
+                    span.style.fontSize = "";
+                    const avail = span.clientWidth;
+                    const needed = span.scrollWidth;
+                    if (avail > 0 && needed > avail) {
+                        const basePx = parseFloat(getComputedStyle(span).fontSize) || 15.36;
+                        const scaled = Math.max(10.5, Math.floor((avail / needed) * basePx * 10) / 10);
+                        span.style.fontSize = scaled + "px";
+                        if (span.scrollWidth > span.clientWidth && scaled > 10.5) {
+                            span.style.fontSize = (scaled - 0.5) + "px";
+                        }
+                    }
+                });
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", fitCaptions);
+            } else {
+                fitCaptions();
+            }
+            window.addEventListener("load", fitCaptions);
+            window.addEventListener("resize", fitCaptions);
         })();
     </script>
-
-
-</body></html>
+</body>
+</html>
