@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Aleksandr Terekhov / Alex Terex — FILMMAKER</title>
@@ -142,7 +141,24 @@
             .btn-base:hover, .btn-base:active { transform: none; }
         }
     </style>
-</head>
+<style>
+        .video-card { position: relative; isolation: isolate; }
+        .video-caption {
+            position: absolute; left: 0; right: 0; bottom: 0; height: 20%; min-height: 38px;
+            background-color: #161b22; border-top: 1px solid var(--border-color, #30363d);
+            color: var(--text-main, #f0f6fc); display: flex; align-items: center; justify-content: center;
+            padding: 0 14px; z-index: 2; transform: translateY(0);
+            transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1); cursor: pointer; user-select: none;
+        }
+        .video-caption:empty { display: none; }
+        .video-caption-text {
+            display: block; width: 100%; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center;
+        }
+        @media (hover: hover) {
+            .video-card:hover .video-caption, .video-card:focus-within .video-caption { transform: translateY(100%); }
+        }
+        .video-card.is-active .video-caption { transform: translateY(100%); pointer-events: none; }</style></head>
 <body>
     <main>
         <img class="avatar" src="avatar.jpg" width="110" height="110" alt="Aleksandr Terekhov / Alex Terex" loading="eager" decoding="async" fetchpriority="high">
@@ -180,9 +196,7 @@
             </nav>
         </div>
 
-        <div class="video-grid">
-<div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/dnI5PDSX9QI" title="Featured Video 1" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/VIV2VpQdUMo" title="Featured Video 2" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/x7h5P-s2tm0" title="Featured Video 3" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/jz1yQP60wTo" title="Featured Video 4" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/tQwebtqUKKE" title="Featured Video 5" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-        </div>
+        <div class="video-grid"><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/dnI5PDSX9QI" title="AI Commercial based on my feature script" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe><div class="video-caption" title="AI Commercial based on my feature script"><span class="video-caption-text">AI Commercial based on my feature script</span></div></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/VIV2VpQdUMo" title="Featured Video 2" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/x7h5P-s2tm0" title="Featured Video 3" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/jz1yQP60wTo" title="Featured Video 4" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div><div class="video-card"><iframe src="https://www.youtube-nocookie.com/embed/tQwebtqUKKE" title="Featured Video 5" width="400" height="225" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div></div>
     </main>
-</body>
-</html>
+
+</body></html>
