@@ -178,7 +178,7 @@ The signature button aesthetic relies on an isometric hard shadow that compresse
 
 The public `index.html` strictly enforces a security header meta tag:
 ```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://archaeoterex.github.io https://i.ytimg.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://archaeoterex.github.io https://i.ytimg.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self'; object-src 'none'; base-uri 'self';">
 ```
 - No external CDNs or untrusted remote scripts.
 - Preconnect and dns-prefetch hints for `https://www.youtube-nocookie.com` and `https://i.ytimg.com`.
