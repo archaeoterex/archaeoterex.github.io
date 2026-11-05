@@ -136,10 +136,11 @@ The signature button aesthetic relies on an isometric hard shadow that compresse
 - **Avatar:** Path `avatar.jpg` (1000x1000 square source, monochrome portrait). Rendered size `110px x 110px`, circular (`border-radius: 50%`), `border: 2px solid #30363d`.
 - **Side Satellite Button (`.btn-side`):**
   - Shape: Perfect circle (`border-radius: 50%`), compact size `60px x 60px` (reduced by 20% from initial 74px draft).
-  - Position: Right of avatar (`left: calc(100% + 14px); top: 50%; transform: translateY(-50%);`), vertically centered relative to the photo.
+  - Position: Right of avatar (`left: calc(100% + 14px); bottom: 22px;`), elevated by 20% of the avatar photo height (22px) from the bottom boundary.
   - Colors & Styling: Transparent background (`background-color: transparent`), delicate thin gray border (`1px solid #30363d`), zero shadow (`box-shadow: none`).
-  - Icon Color & Transition: Default icon color matches button icons (`#8b949e`), transitioning to warm ivory `#F4F1EA` on hover with subtle border illumination and micro-scale.
+  - Icon Color & Transition: Default icon color matches button icons (`#8b949e`), transitioning to warm ivory `#F4F1EA` on hover with subtle border illumination and background tint (without scaling/enlargement).
   - Icon Geometry: Scaled SVG glyph (viewBox `0 0 70 104.6`, rendered `21px x 31px`), fill `currentColor`.
+  - Optical Alignment: Micro-compensation (`transform: translate(-0.6px, 0.8px)`) applied to `.icon-side` to neutralize the optical mass centroid bias and achieve true visual balance inside the circular button.
   - Target: Configurable via admin panel (default: `https://elsewire.news`). Opens in new tab (`target="_blank" rel="noopener noreferrer"`).
   - Hover Tooltip: Single styled floating badge (`.btn-side-tip`) displaying `ELSEWIRE` in uppercase off-white font (`#f0f6fc`), card surface background (`#161b22`), border (`#30363d`), positioned above button (`bottom: calc(100% + 7px)`). The native browser `title` attribute is intentionally omitted to prevent duplicate tooltips.
   - Responsive alignment: Because it is positioned absolutely within an `inline-block` container, the avatar itself remains perfectly centered on the screen axis on all screen sizes.
