@@ -141,7 +141,7 @@ The signature button aesthetic relies on an isometric hard shadow that compresse
   - Icon Color & Transition: Default icon color matches button icons (`#8b949e`), transitioning to warm ivory `#F4F1EA` on hover with subtle border illumination and micro-scale.
   - Icon Geometry: Scaled SVG glyph (viewBox `0 0 70 104.6`, rendered `21px x 31px`), fill `currentColor`.
   - Target: Configurable via admin panel (default: `https://elsewire.news`). Opens in new tab (`target="_blank" rel="noopener noreferrer"`).
-  - Hover Tooltip: Floating badge (`.btn-side-tip`) displaying `ELSEWIRE` in uppercase off-white font (`#f0f6fc`), card surface background (`#161b22`), border (`#30363d`), positioned above button (`bottom: calc(100% + 7px)`), paired with native `title="ELSEWIRE"`.
+  - Hover Tooltip: Single styled floating badge (`.btn-side-tip`) displaying `ELSEWIRE` in uppercase off-white font (`#f0f6fc`), card surface background (`#161b22`), border (`#30363d`), positioned above button (`bottom: calc(100% + 7px)`). The native browser `title` attribute is intentionally omitted to prevent duplicate tooltips.
   - Responsive alignment: Because it is positioned absolutely within an `inline-block` container, the avatar itself remains perfectly centered on the screen axis on all screen sizes.
 
 ### 5.2 Social & Contact Links (Square Grid)
