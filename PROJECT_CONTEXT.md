@@ -132,18 +132,23 @@ The signature button aesthetic relies on an isometric hard shadow that compresse
 
 ## 5. Component Breakdown & Functional Rules
 
-### 5.1 Avatar & Side Satellite Button
+### 5.1 Avatar & Symmetric Side Satellite Buttons
 - **Avatar:** Path `avatar.jpg` (1000x1000 square source, monochrome portrait). Rendered size `110px x 110px`, circular (`border-radius: 50%`), `border: 2px solid #30363d`.
-- **Side Satellite Button (`.btn-side`):**
-  - Shape: Perfect circle (`border-radius: 50%`), compact size `60px x 60px` (reduced by 20% from initial 74px draft).
-  - Position: Right of avatar (`left: calc(100% + 14px); bottom: 22px;`), elevated by 20% of the avatar photo height (22px) from the bottom boundary.
+- **Side Satellite Buttons (`.btn-side`):**
+  - Shape: Perfect circles (`border-radius: 50%`), compact size `60px x 60px` (reduced by 20% from initial 74px draft).
+  - Symmetric Positioning:
+    - **Left Button (`.btn-side-left`):** `right: calc(100% + 14px); bottom: 22px;` (Nebula — `https://nebula-play.github.io`).
+    - **Right Button (`.btn-side-right`):** `left: calc(100% + 14px); bottom: 22px;` (Elsewire — `https://elsewire.news`).
+    - Both sit symmetrically on either side of the avatar, elevated by 20% of the avatar photo height (`22px`) from the bottom boundary.
   - Colors & Styling: Transparent background (`background-color: transparent`), delicate thin gray border (`1px solid #30363d`), zero shadow (`box-shadow: none`).
-  - Icon Color & Transition: Default icon color matches button icons (`#8b949e`), transitioning to warm ivory `#F4F1EA` on hover with subtle border illumination and background tint (without scaling/enlargement).
-  - Icon Geometry: Scaled SVG glyph (viewBox `0 0 70 104.6`, rendered `21px x 31px`), fill `currentColor`.
-  - Centering: Perfectly centered inside the circular button via Flexbox (`align-items: center; justify-content: center;`) with zero artificial offsets.
-  - Target: Configurable via admin panel (default: `https://elsewire.news`). Opens in new tab (`target="_blank" rel="noopener noreferrer"`).
-  - Hover Tooltip: Single styled floating badge (`.btn-side-tip`) displaying `ELSEWIRE` in uppercase off-white font (`#f0f6fc`), card surface background (`#161b22`), border (`#30363d`), positioned above button (`bottom: calc(100% + 7px)`). The native browser `title` attribute is intentionally omitted to prevent duplicate tooltips.
-  - Responsive alignment: Because it is positioned absolutely within an `inline-block` container, the avatar itself remains perfectly centered on the screen axis on all screen sizes.
+  - Icon Color & Transition: Default icon color matches button icons (`#8b949e`), transitioning to warm ivory `#F4F1EA` on hover with subtle border illumination and background tint (without scaling/enlargement). Strictly monochrome `fill="currentColor"` (no gradients or colored fills).
+  - Icon Geometry:
+    - **Nebula (`.icon-nebula`):** Monochrome N glyph (`viewBox="19 14 26 36"`, rendered `19px x 26px`), fill `currentColor`.
+    - **Elsewire (`.icon-side`):** Single-path merged SVG glyph (`viewBox="0 0 70 104.6"`, rendered `21px x 31px`), fill `currentColor`.
+  - Centering: Perfectly centered inside each circular button via Flexbox (`align-items: center; justify-content: center;`) with zero artificial offsets.
+  - Targets: Both configurable via admin panel. Open in new tab (`target="_blank" rel="noopener noreferrer"`).
+  - Hover Tooltips: Single styled floating badge (`.btn-side-tip`) displaying `NEBULA` (left) or `ELSEWIRE` (right) in uppercase off-white font (`#f0f6fc`), card surface background (`#161b22`), border (`#30363d`), positioned above each button (`bottom: calc(100% + 7px)`). The native browser `title` attribute is intentionally omitted to prevent duplicate tooltips.
+  - Responsive alignment: Because both are positioned absolutely within an `inline-block` container, the avatar itself remains perfectly centered on the screen axis on all screen sizes.
 
 ### 5.2 Social & Contact Links (Square Grid)
 - Fixed 4-column grid (`grid-template-columns: repeat(4, 1fr)`), max container width `400px`.
@@ -168,7 +173,7 @@ The signature button aesthetic relies on an isometric hard shadow that compresse
 
 ### 5.4 Control Panel Tab Structure
 1. **Profile:** Name (max 80 chars) and Title (max 60 chars).
-2. **Links:** Direct input fields for Instagram, IMDb, LinkedIn, Email, and Elsewire (Side Circle Link).
+2. **Links:** Direct input fields for Instagram, IMDb, LinkedIn, Email, Nebula (Left Circle Link), and Elsewire (Right Circle Link).
 3. **Videos:** Dynamic re-orderable list with up/down arrows, deletion, addition, URL parsing, and caption length counter (`X/45`).
 4. **GitHub:** Personal Access Token input with reveal/hide toggle, stored exclusively in client `localStorage`.
 
