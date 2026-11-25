@@ -99,7 +99,7 @@
             height: 40px;
             border-radius: 50%;
             background-color: transparent;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--accent-shadow);
             box-shadow: none;
             display: flex;
             align-items: center;
@@ -114,6 +114,7 @@
         .btn-side:focus-visible {
             outline: 2px solid var(--btn-focus);
             outline-offset: 4px;
+            border-color: var(--accent-shadow);
         }
 
         .btn-side-tip {
@@ -138,13 +139,19 @@
             z-index: 20;
         }
 
+        @media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+            .btn-side {
+                border-color: var(--border-color);
+            }
+        }
+
         @media (hover: hover) and (pointer: fine) {
             .btn-side-tip {
                 display: block;
             }
             .btn-side:hover {
                 color: #F4F1EA;
-                border-color: var(--text-sub);
+                border-color: var(--accent-shadow);
                 background-color: rgba(240, 246, 252, 0.04);
             }
             .btn-side:hover .btn-side-tip,
@@ -156,6 +163,7 @@
 
         .btn-side:active {
             transform: scale(0.97);
+            border-color: var(--accent-shadow);
             background-color: rgba(240, 246, 252, 0.08);
         }
 
